@@ -1,22 +1,24 @@
-sudo: true
+#dist: trusty
+sudo: false
+#sudo: true
 language: ruby
 rvm:
-  - "2.0.0"
-  - "2.1"
-  - "2.2"
-  - "2.3.1"
+  #- "2.0.0"
+  #- "2.1"
+  #- "2.2"
+  #- "2.3.1"
   - "2.4.0"
-  - "ruby-head"
+  #- "ruby-head"
   - "rbx-3"
 matrix:
   allow_failures:
     - rvm: ruby-head
     - rvm: rbx
 before_install:
-  - sudo apt-get update && sudo apt-get install xpra xserver-xorg-video-dummy g++ libxrandr-dev libfox-1.6-dev libfxscintilla-dev swig;
+  - apt-get update && apt-get install xpra xserver-xorg-video-dummy g++ libxrandr-dev libfox-1.6-dev libfxscintilla-dev swig;
   - swig -version
   - ls -l /usr/lib/libfxscintilla*
-  - sudo ln -s /usr/lib/libfxscintilla.so.19 /usr/lib/libfxscintilla.so
+  #- sudo ln -s /usr/lib/libfxscintilla.so.19 /usr/lib/libfxscintilla.so
   - bundle install
 before_script:
   - "xpra --xvfb=\"Xorg +extension GLX -config `pwd`/test/dummy.xorg.conf -logfile ${HOME}/.xpra/xorg.log\"  start :9"
