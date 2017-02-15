@@ -3,6 +3,17 @@ sudo: false
 group: beta
 #sudo: true
 language: ruby
+addons:
+  apt:
+    packages:
+    - xpra
+    - xserver-xorg-video-dummy
+    - g++
+    - libxrandr-dev
+    - libfox-1.6-dev
+    - libfxscintilla-dev
+    - swig
+
 rvm:
   #- "2.0.0"
   #- "2.1"
@@ -16,7 +27,7 @@ matrix:
     - rvm: ruby-head
     - rvm: rbx
 before_install:
-  - apt-get update && apt-get install xpra xserver-xorg-video-dummy g++ libxrandr-dev libfox-1.6-dev libfxscintilla-dev swig;
+  #- apt-get update && apt-get install xpra xserver-xorg-video-dummy g++ libxrandr-dev libfox-1.6-dev libfxscintilla-dev swig;
   - swig -version
   - ls -l /usr/lib/libfxscintilla*
   #- sudo ln -s /usr/lib/libfxscintilla.so.19 /usr/lib/libfxscintilla.so
