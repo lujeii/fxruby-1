@@ -11,10 +11,11 @@ build_script:
   - bundle exec rake compile
 test_script:
   - bundle exec rake test
-
 environment:
   matrix:
     - ruby_version: "24"
       MINGW_PACKAGE_PREFIX: "mingw-w64-i686"
+      MSYSTEM: "MINGW32"
     - ruby_version: "24-x64"
       MINGW_PACKAGE_PREFIX: "mingw-w64-x86_64"
+      MSYSTEM: "MINGW64"
