@@ -1,5 +1,5 @@
 init:
-  - SET PATH=C:\Ruby%ruby_version%\bin;%PATH%
+  - SET PATH=C:\Ruby%ruby_version%\bin;C:/msys64/%MSYSTEM%/bin;%PATH%
   - SET RAKEOPT=-rdevkit
 install:
   - ruby --version
